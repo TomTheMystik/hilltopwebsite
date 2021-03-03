@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,8 +18,17 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import mainListItems from './mainListItems';
+import secondaryListItems from './secondaryListItems';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ExploreIcon from '@material-ui/icons/Explore';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 function Copyright() {
   return (
@@ -33,6 +42,8 @@ function Copyright() {
     </Typography>
   );
 }
+
+
 
 const drawerWidth = 240;
 
@@ -71,8 +82,9 @@ const useStyles = makeStyles((theme) => ({
   menuButtonHidden: {
     display: 'none',
   },
-  title: {
-    flexGrow: 1,
+  title: {    
+    flexGrow: 100,
+
   },
   drawerPaper: {
     position: 'relative',
@@ -114,13 +126,27 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
   headerIcons: {
-    borderLeft: 40
+    borderLeft: 40,
+    fontSize: 30,
+    color: 'white',
+  },
+  NotificationButton: {
+    flexGrow: 2,
+  },
+  AccountButton: {
+    flexGrow: 2,
   },
 }));
 
-export default function Dashboard() {
+const HomeScreen = ( props ) => {
+  const { history } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+
+  useEffect(() => {
+    console.log("Yeeeoooo");
+  }, []);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -144,22 +170,25 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Hilltop Website
+            Welcome to Hilltop Bed & Breakfast
           </Typography>
-          <IconButton color="inherit">
+          <IconButton color="inherit" className={classes.NotificationButton}>
             <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon className={classes.headerIcons}/>
+              <NotificationsIcon className={classes.headerIcons} />
             </Badge>            
           </IconButton>
           <IconButton
               edge="end"
               aria-label="account of current user"
               color="inherit"
+              className={classes.AccountButton}
             >
               <AccountCircleIcon className={classes.headerIcons} />
             </IconButton>
         </Toolbar>
       </AppBar>
+
+
       <Drawer
         variant="permanent"
         classes={{
@@ -172,11 +201,74 @@ export default function Dashboard() {
             <ChevronLeftIcon />
           </IconButton>
         </div>
+        
+        <Divider />         
+    <List>      
+      
+      <ListItem button disabled>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Home" />
+      </ListItem>
+
+      <ListItem button>
+        <ListItemIcon>
+          <ExploreIcon />
+        </ListItemIcon>
+        <ListItemText primary="Explore" />
+      </ListItem>
+
+      <ListItem button onClick = {() => history.push(`/Room1`)}>
+        <ListItemIcon>
+          <MeetingRoomIcon />
+        </ListItemIcon>
+        <ListItemText primary="Room 1" />
+      </ListItem>
+
+      <ListItem button>
+        <ListItemIcon>
+          <MeetingRoomIcon />
+        </ListItemIcon>
+        <ListItemText primary="Room 2" />
+      </ListItem>
+
+      <ListItem button>
+        <ListItemIcon>
+          <MeetingRoomIcon />
+        </ListItemIcon>
+        <ListItemText primary="Room 3" />
+      </ListItem>    
+
+    </List>
+         
         <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
+        
+        <List>      
+          <ListSubheader inset>Saved reports</ListSubheader>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Current month" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Last quarter" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Year-end sale" />
+          </ListItem>
+         </List>
+        
       </Drawer>
+
+
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -189,3 +281,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+export default HomeScreen;

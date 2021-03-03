@@ -2,30 +2,21 @@ import './App.css';
 import Documentation from './Documentation';
 import { Button, Grid } from '@material-ui/core';
 import Header from './Header';
+import { Route, Switch } from 'react-router-dom';
+import HomeScreen from './HomeScreen';
+import Room1 from './Room1';
 
-function App() {
 
-  return (
-    <div className="App">
-      <header className="App-header">    
-
-        <Grid container direction='column'>
-          <Grid><Header/></Grid>
-        <Grid item container>
-          <Grid item xs={2} />
-          <Grid item xs={8}> 
-              This is where the header be
-          </Grid>
-          <Grid item xs={8}>
-              This is where the content be
-          </Grid>
-          <Grid item xs={2} />
-        </Grid>  
-        </Grid>
-
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  
+    <Switch>
+      <Route exact path="/" render={(props) => <HomeScreen {...props} />} />
+      <Route
+        exact path ="/Room1"
+        render={(props) => <Room1 {...props} />}/> 
+  
+    </Switch>
+  
+);
 
 export default App;
