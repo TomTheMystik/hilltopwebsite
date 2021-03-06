@@ -19,16 +19,16 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
-const Room1 = (props) => {
-
+const Room3 = (props) => {  
+    
     const classes = useStyles();
 
-    let {room1Disabled} = props;
-    room1Disabled = true;
+    let {room3Disabled} = props;
+    room3Disabled = true;
 
     return (
         <div className={classes.root}>
-                <CustomDrawer {...props} room1Disabled={room1Disabled} title = "Hilltop Room No.1" />
+                <CustomDrawer {...props} room3Disabled={room3Disabled} title = "Hilltop Room No.3" />
 
                  <main className={classes.content}>
                 
@@ -37,4 +37,4 @@ const Room1 = (props) => {
     );
 }
 
-export default Room1;
+export default Room3;
