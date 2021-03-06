@@ -29,6 +29,8 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import ReactWeather, { useWeatherBit, useOpenWeather } from 'react-open-weather';
+//import 'react-open-weather/lib/css/ReactWeather.css';
 
 function Copyright() {
   return (
@@ -44,6 +46,25 @@ function Copyright() {
 }
 
 
+const customStyles = {
+	fontFamily:  'Helvetica, sans-serif',
+	gradientStart:  '#0181C2',
+	gradientMid:  '#04A7F9',
+	gradientEnd:  '#4BC4F7',
+	locationFontColor:  '#FFF',
+	todayTempFontColor:  '#FFF',
+	todayDateFontColor:  '#B5DEF4',
+	todayRangeFontColor:  '#B5DEF4',
+	todayDescFontColor:  '#B5DEF4',
+	todayInfoFontColor:  '#B5DEF4',
+	todayIconColor:  '#FFF',
+	forecastBackgroundColor:  '#FFF',
+	forecastSeparatorColor:  '#DDD',
+	forecastDateColor:  '#777',
+	forecastDescColor:  '#777',
+	forecastRangeColor:  '#777',
+	forecastIconColor:  '#4BC4F7',
+};
 
 const drawerWidth = 240;
 
@@ -82,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
   menuButtonHidden: {
     display: 'none',
   },
-  title: {    
+  title: {
     flexGrow: 100,
 
   },
@@ -155,6 +176,14 @@ const HomeScreen = ( props ) => {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+  const { data, isLoading, errorMessage } = useOpenWeather({
+    key: "e1cb7f97cf81095fa13e4f10ac6140b0",
+    lat: '51.4964',
+    lon: '-0.1224',
+    lang: 'en',
+    unit: 'metric', // values are (metric, standard, imperial)
+  });
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -175,7 +204,7 @@ const HomeScreen = ( props ) => {
           <IconButton color="inherit" className={classes.NotificationButton}>
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon className={classes.headerIcons} />
-            </Badge>            
+            </Badge>
           </IconButton>
           <IconButton
               edge="end"
@@ -201,10 +230,10 @@ const HomeScreen = ( props ) => {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        
-        <Divider />         
-    <List>      
-      
+
+        <Divider />
+    <List>
+
       <ListItem button disabled>
         <ListItemIcon>
           <DashboardIcon />
@@ -238,13 +267,13 @@ const HomeScreen = ( props ) => {
           <MeetingRoomIcon />
         </ListItemIcon>
         <ListItemText primary="Room 3" />
-      </ListItem>    
+      </ListItem>
 
     </List>
-         
+
         <Divider />
-        
-        <List>      
+
+        <List>
           <ListSubheader inset>Saved reports</ListSubheader>
           <ListItem button>
             <ListItemIcon>
@@ -265,14 +294,23 @@ const HomeScreen = ( props ) => {
             <ListItemText primary="Year-end sale" />
           </ListItem>
          </List>
-        
+
       </Drawer>
 
 
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          
+          <ReactWeather
+            isLoading={isLoading}
+            errorMessage={errorMessage}
+            data={data}
+            lang="en"
+            locationLabel="Drumbo"
+            unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+            showForecast
+            theme={customStyles}
+          />
           <Box pt={4}>
             <Copyright />
           </Box>
