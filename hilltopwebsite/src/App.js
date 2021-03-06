@@ -8,15 +8,15 @@ import Room1 from './Room1';
 
 
 const App = () => (
-  
+
     <Switch>
       <Route exact path="/" render={(props) => <HomeScreen {...props} />} />
       <Route
         exact path ="/Room1"
-        render={(props) => <Room1 {...props} />}/> 
-  
+        render={(props) => <Room1 {...props} />}/>
+
     </Switch>
-  
+
 );
 
 export default App;

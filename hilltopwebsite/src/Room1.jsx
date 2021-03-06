@@ -1,6 +1,6 @@
 import reactDom from "react-dom";
 import React, {useState, useEffect} from 'react';
-
+import PhotoViewer from './PhotoViewer';
 
 
 const Room1 = (props) => {
@@ -16,7 +16,7 @@ const Room1 = (props) => {
 
     return (
         <div>
-            Use styles to set font size to large
+            <PhotoViewer/>
         </div>
     );
 }
