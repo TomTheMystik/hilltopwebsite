@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import PhotoViewer from './PhotoViewer';
+
 import CustomDrawer from "./CustomDrawer";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
-    }, 
+    },
     appBarSpacer: theme.mixins.toolbar,
     content: {
       flexGrow: 1,
@@ -15,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     container: {
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(4),
-    },  
-    
+    },
+
   }));
 
 const Room1 = (props) => {
@@ -28,11 +30,10 @@ const Room1 = (props) => {
 
     return (
         <div className={classes.root}>
-                <CustomDrawer {...props} room1Disabled={room1Disabled} title = "Hilltop Room No.1" />
-
-                 <main className={classes.content}>
-                
-                 </main>
+          <CustomDrawer {...props} room1Disabled={room1Disabled} title = "Hilltop Room No.1" />
+          <main className={classes.content}>
+            <PhotoViewer/>
+          </main>
         </div>
     );
 }

@@ -10,7 +10,7 @@ import Room2 from './Room2';
 import Room3 from './Room3';
 
 
-const App = () => {    
+const App = () => {
 
   const [open, setOpen] = React.useState(true);
   let homeDisabled = false, exploreDisabled = false, room1Disabled = false, room2Disabled = false, room3Disabled = false;
@@ -39,14 +39,14 @@ const App = () => {
         exact path ="/Room2"
         render={(props) => <Room2 {...props} open = {open} handleDrawerOpen={handleDrawerOpen}  handleDrawerClose={handleDrawerClose}
         homeDisabled={homeDisabled} exploreDisabled={exploreDisabled} room1Disabled={room1Disabled}
-        room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>}/>        
+        room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>}/>
 
         <Route
         exact path ="/Room3"
         render={(props) => <Room3 {...props} open = {open} handleDrawerOpen={handleDrawerOpen}  handleDrawerClose={handleDrawerClose}
         homeDisabled={homeDisabled} exploreDisabled={exploreDisabled} room1Disabled={room1Disabled}
         room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>}/>
-  
+
     </Switch>
 
   )
