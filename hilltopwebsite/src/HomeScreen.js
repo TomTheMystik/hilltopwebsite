@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import CustomDrawer from './CustomDrawer';
 import { makeStyles } from '@material-ui/core/styles';
+import ReactWeather, { useOpenWeather } from 'react-open-weather';
 
 function Copyright() {
   return (
@@ -23,7 +24,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-  }, 
+  },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
@@ -33,17 +34,29 @@ const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
-  },  
-  
+  },
+  weatherContainer: {
+    height: 500,
+    width: 500
+  },
+
 }));
 
 const HomeScreen = ( props ) => {
-  
+
   const classes = useStyles();
+
+  const { data, isLoading, errorMessage } = useOpenWeather({
+    key: "e1cb7f97cf81095fa13e4f10ac6140b0",
+    lat: '51.4964',
+    lon: '-0.1224',
+    lang: 'en',
+    unit: 'metric', 
+  });
 
   let {homeDisabled} = props;
   homeDisabled = true;
-  
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -53,7 +66,19 @@ const HomeScreen = ( props ) => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          
+        <Container maxWidth="sm" className={classes.weatherContainer}>
+                  
+          <ReactWeather
+            isLoading={isLoading}
+            errorMessage={errorMessage}
+            data={data}
+            lang="en"
+            locationLabel="Drumbo"
+            unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+            showForecast
+          />
+          </Container>
+        
           <Box pt={4}>
             <Copyright />
           </Box>
