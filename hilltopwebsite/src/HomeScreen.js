@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import CustomDrawer from './CustomDrawer';
 import { makeStyles } from '@material-ui/core/styles';
-import ReactWeather, { useWeatherBit, useOpenWeather } from 'react-open-weather';
+import ReactWeather, { useOpenWeather } from 'react-open-weather';
 
 function Copyright() {
   return (
@@ -35,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
+  weatherContainer: {
+    height: 500,
+    width: 500
+  },
 
 }));
 
@@ -62,6 +66,8 @@ const HomeScreen = ( props ) => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+        <Container maxWidth="sm" className={classes.weatherContainer}>
+                  
           <ReactWeather
             isLoading={isLoading}
             errorMessage={errorMessage}
@@ -71,6 +77,8 @@ const HomeScreen = ( props ) => {
             unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
             showForecast
           />
+          </Container>
+        
           <Box pt={4}>
             <Copyright />
           </Box>
