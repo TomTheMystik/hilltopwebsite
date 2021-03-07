@@ -5,11 +5,16 @@ import {colors} from '@material-ui/core';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.blue[400],
+      main: colors.green[500],
     },
     secondary: {
       main: colors.deepOrange[500],
     },
+  },
+  headerIcons: {
+    borderLeft: 40,
+    fontSize: 30,
+    color: 'white',
   },
 });
 

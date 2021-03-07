@@ -7,16 +7,15 @@ import Link from '@material-ui/core/Link';
 import CustomDrawer from './CustomDrawer';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
+import Grid from '@material-ui/core/Grid';
+import hilltop from './assets/hilltop.jpeg';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Hilltop Drumbo
-      </Link>{' '}
+      {'Copyright © Hilltop Drumbo '}
       {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
@@ -31,13 +30,8 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     overflow: 'auto',
   },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  weatherContainer: {
-    height: 500,
-    width: 500
+  containerSpacing: {
+    padding: 10,
   },
 
 }));
@@ -65,24 +59,88 @@ const HomeScreen = ( props ) => {
 
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-        <Container maxWidth="sm" className={classes.weatherContainer}>
-                  
-          <ReactWeather
-            isLoading={isLoading}
-            errorMessage={errorMessage}
-            data={data}
-            lang="en"
-            locationLabel="Drumbo"
-            unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-            showForecast
-          />
-          </Container>
+
+        <Grid container spacing={3} className={classes.containerSpacing}>
+
+        <Grid item xs={12}>
+
+          <img src={hilltop} width={1000} />
+
+        </Grid>
+
+          <Grid item xs={3}>
+
+            <ReactWeather
+              isLoading={isLoading}
+              errorMessage={errorMessage}
+              data={data}
+              lang="en"
+              locationLabel="Drumbo"
+              unitsLabels={{ temperature: '°C', windSpeed: 'Km/h' }}
+              showForecast
+            />
+
+          </Grid>
+
+          <Grid item xs={3}>
+
+            <ReactWeather
+              isLoading={isLoading}
+              errorMessage={errorMessage}
+              data={data}
+              lang="en"
+              locationLabel="Drumbo"
+              unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+              showForecast
+            />
+
+          </Grid>
+
+          <Grid item xs={3}>
+
+            <ReactWeather
+              isLoading={isLoading}
+              errorMessage={errorMessage}
+              data={data}
+              lang="en"
+              locationLabel="Drumbo"
+              unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+              showForecast
+            />
+
+          </Grid>
+          <Grid item xs={3}>
+
+            <ReactWeather
+              isLoading={isLoading}
+              errorMessage={errorMessage}
+              data={data}
+              lang="en"
+              locationLabel="Drumbo"
+              unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+              showForecast
+            />
+
+          </Grid>
+
+          <Grid item xs={12}>
+
+            
+              <Copyright />
+                        
+
+          </Grid>
+
         
-          <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container>
+         
+        
+          
+
+        </Grid>
+        
+                  
+          
+        
       </main>
     </div>
   );

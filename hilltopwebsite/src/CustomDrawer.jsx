@@ -103,17 +103,6 @@ const useStyles = makeStyles((theme) => ({
     fixedHeight: {
       height: 240,
     },
-    headerIcons: {
-      borderLeft: 40,
-      fontSize: 30,
-      color: 'white',
-    },
-    NotificationButton: {
-      flexGrow: 2,
-    },
-    AccountButton: {
-      flexGrow: 2,
-    },
   }));
 
 const CustomDrawer = (props) => {
@@ -140,19 +129,7 @@ const CustomDrawer = (props) => {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             {title}
           </Typography>
-          <IconButton color="inherit" className={classes.NotificationButton}>
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon className={classes.headerIcons} />
-            </Badge>            
-          </IconButton>
-          <IconButton
-              edge="end"
-              aria-label="account of current user"
-              color="inherit"
-              className={classes.AccountButton}
-            >
-              <AccountCircleIcon className={classes.headerIcons} />
-            </IconButton>
+          
         </Toolbar>
       </AppBar>
 
