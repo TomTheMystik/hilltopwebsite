@@ -60,9 +60,9 @@ const useStyles = makeStyles((theme) => ({
     menuButtonHidden: {
       display: 'none',
     },
-    title: {    
+    title: {
       flexGrow: 100,
-  
+
     },
     drawerPaper: {
       position: 'relative',
@@ -119,11 +119,11 @@ const useStyles = makeStyles((theme) => ({
 const CustomDrawer = (props) => {
 
     const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, exploreDisabled, room1Disabled, room2Disabled, room3Disabled } = props;
-    const classes = useStyles();    
+    const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    
-    return (    
-        
+
+    return (
+
         <div className={classes.root}>
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -143,7 +143,7 @@ const CustomDrawer = (props) => {
           <IconButton color="inherit" className={classes.NotificationButton}>
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon className={classes.headerIcons} />
-            </Badge>            
+            </Badge>
           </IconButton>
           <IconButton
               edge="end"
@@ -168,10 +168,10 @@ const CustomDrawer = (props) => {
                 <ChevronLeftIcon />
             </IconButton>
             </div>
-            
-            <Divider />         
-        <List>      
-        
+
+            <Divider />
+        <List>
+
         <ListItem button disabled={homeDisabled} onClick = {() => history.push('/')}>
             <ListItemIcon>
             <DashboardIcon />
@@ -206,39 +206,15 @@ const CustomDrawer = (props) => {
             <MeetingRoomIcon />
             </ListItemIcon>
             <ListItemText primary="Room 3" />
-        </ListItem>    
+        </ListItem>
 
         </List>
-            
-            <Divider />
-            
-            <List>      
-            <ListSubheader inset>Saved reports</ListSubheader>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Current month" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Last quarter" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Year-end sale" />
-            </ListItem>
-            </List>
-            
+
         </Drawer>
 
-    </div>       
-        
-    )    
+    </div>
+
+    )
 };
 
 export default CustomDrawer;
