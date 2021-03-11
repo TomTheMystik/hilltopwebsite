@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomDrawer = (props) => {
 
-    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, exploreDisabled, room1Disabled, room2Disabled, room3Disabled } = props;
+    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, exploreDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled } = props;
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -206,6 +206,12 @@ const CustomDrawer = (props) => {
             <MeetingRoomIcon />
             </ListItemIcon>
             <ListItemText primary="Room 3" />
+        </ListItem>
+
+        <ListItem button disabled={pricingDisabled} onClick = {() => history.push('/Pricing')}>
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary="Pricing" />
         </ListItem>
 
         </List>
