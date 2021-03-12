@@ -22,6 +22,7 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { blue } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
 
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
       whiteSpace: 'nowrap',
       width: drawerWidth,
+      background: theme.palette.drawer.main,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
@@ -99,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       overflow: 'auto',
       flexDirection: 'column',
+      
     },
     fixedHeight: {
       height: 240,
@@ -110,6 +113,7 @@ const CustomDrawer = (props) => {
     const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, exploreDisabled, room1Disabled, room2Disabled, room3Disabled } = props;
     const classes = useStyles();    
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    
     
     return (    
         
@@ -139,6 +143,8 @@ const CustomDrawer = (props) => {
             paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
             }}
             open={open}
+            
+            // "#87ceeb"
         >
             <div className={classes.toolbarIcon}>
             <IconButton onClick={handleDrawerClose}>
