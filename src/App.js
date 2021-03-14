@@ -12,7 +12,7 @@ import Room3 from './Room3';
 
 const App = () => {
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   let homeDisabled = false, exploreDisabled = false, room1Disabled = false, room2Disabled = false, room3Disabled = false;
 
   const handleDrawerOpen = () => {
