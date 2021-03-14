@@ -13,7 +13,7 @@ import Pricing from './Pricing';
 
 const App = () => {
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   let homeDisabled = false, exploreDisabled = false, room1Disabled = false, room2Disabled = false, room3Disabled = false, pricingDisabled = false;
 
   const handleDrawerOpen = () => {

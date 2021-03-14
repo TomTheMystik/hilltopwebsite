@@ -22,6 +22,7 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { blue } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
 
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
       whiteSpace: 'nowrap',
       width: drawerWidth,
+      background: theme.palette.drawer.main,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
@@ -99,20 +101,10 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       overflow: 'auto',
       flexDirection: 'column',
+
     },
     fixedHeight: {
       height: 240,
-    },
-    headerIcons: {
-      borderLeft: 40,
-      fontSize: 30,
-      color: 'white',
-    },
-    NotificationButton: {
-      flexGrow: 2,
-    },
-    AccountButton: {
-      flexGrow: 2,
     },
   }));
 
@@ -140,19 +132,7 @@ const CustomDrawer = (props) => {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             {title}
           </Typography>
-          <IconButton color="inherit" className={classes.NotificationButton}>
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon className={classes.headerIcons} />
-            </Badge>
-          </IconButton>
-          <IconButton
-              edge="end"
-              aria-label="account of current user"
-              color="inherit"
-              className={classes.AccountButton}
-            >
-              <AccountCircleIcon className={classes.headerIcons} />
-            </IconButton>
+
         </Toolbar>
       </AppBar>
 
@@ -162,6 +142,8 @@ const CustomDrawer = (props) => {
             paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
             }}
             open={open}
+
+            // "#87ceeb"
         >
             <div className={classes.toolbarIcon}>
             <IconButton onClick={handleDrawerClose}>
