@@ -12,6 +12,7 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import PaymentIcon from '@material-ui/icons/Payment';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -110,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomDrawer = (props) => {
 
-    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, exploreDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled } = props;
+    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled } = props;
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -161,13 +162,6 @@ const CustomDrawer = (props) => {
             <ListItemText primary="Home" />
         </ListItem>
 
-        <ListItem button disabled={exploreDisabled}>
-            <ListItemIcon>
-            <ExploreIcon />
-            </ListItemIcon>
-            <ListItemText primary="Explore" />
-        </ListItem>
-
         {/* <ListItem button onClick = {() => history.push('/Room1')}> */}
         <ListItem button disabled={room1Disabled} onClick = {() => history.push('/Room1')}>
             <ListItemIcon>
@@ -192,6 +186,7 @@ const CustomDrawer = (props) => {
 
         <ListItem button disabled={pricingDisabled} onClick = {() => history.push('/Pricing')}>
             <ListItemIcon>
+              <PaymentIcon />
             </ListItemIcon>
             <ListItemText primary="Pricing" />
         </ListItem>
