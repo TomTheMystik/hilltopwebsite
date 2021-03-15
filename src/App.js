@@ -8,12 +8,13 @@ import HomeScreen from './HomeScreen';
 import Room1 from './Room1';
 import Room2 from './Room2';
 import Room3 from './Room3';
+import Pricing from './Pricing';
 
 
 const App = () => {
 
   const [open, setOpen] = React.useState(false);
-  let homeDisabled = false, exploreDisabled = false, room1Disabled = false, room2Disabled = false, room3Disabled = false;
+  let homeDisabled = false, room1Disabled = false, room2Disabled = false, room3Disabled = false, pricingDisabled = false;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -26,26 +27,32 @@ const App = () => {
 
     <Switch>
       <Route exact path="/" render={(props) => <HomeScreen {...props} open = {open} handleDrawerOpen={handleDrawerOpen}
-      handleDrawerClose={handleDrawerClose} />} homeDisabled={homeDisabled} exploreDisabled={exploreDisabled} room1Disabled={room1Disabled}
+      handleDrawerClose={handleDrawerClose} />} homeDisabled={homeDisabled} room1Disabled={room1Disabled}
       room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>
 
       <Route
         exact path ="/Room1"
         render={(props) => <Room1 {...props} open = {open} handleDrawerOpen={handleDrawerOpen}  handleDrawerClose={handleDrawerClose}
-        homeDisabled={homeDisabled} exploreDisabled={exploreDisabled} room1Disabled={room1Disabled}
+        homeDisabled={homeDisabled} room1Disabled={room1Disabled}
         room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>}/>
 
       <Route
         exact path ="/Room2"
         render={(props) => <Room2 {...props} open = {open} handleDrawerOpen={handleDrawerOpen}  handleDrawerClose={handleDrawerClose}
-        homeDisabled={homeDisabled} exploreDisabled={exploreDisabled} room1Disabled={room1Disabled}
+        homeDisabled={homeDisabled} room1Disabled={room1Disabled}
         room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>}/>
 
         <Route
         exact path ="/Room3"
         render={(props) => <Room3 {...props} open = {open} handleDrawerOpen={handleDrawerOpen}  handleDrawerClose={handleDrawerClose}
-        homeDisabled={homeDisabled} exploreDisabled={exploreDisabled} room1Disabled={room1Disabled}
+        homeDisabled={homeDisabled} room1Disabled={room1Disabled}
         room2Disabled={room2Disabled} room3Disabled={room3Disabled}/>}/>
+
+        <Route
+        exact path ="/Pricing"
+        render={(props) => <Pricing {...props} open = {open} handleDrawerOpen={handleDrawerOpen}  handleDrawerClose={handleDrawerClose}
+        homeDisabled={homeDisabled} room1Disabled={room1Disabled}
+        room2Disabled={room2Disabled} room3Disabled={room3Disabled} pricingDisabled={pricingDisabled}/>}/>
 
     </Switch>
 

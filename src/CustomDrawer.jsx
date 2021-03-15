@@ -12,6 +12,7 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import PaymentIcon from '@material-ui/icons/Payment';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -61,9 +62,9 @@ const useStyles = makeStyles((theme) => ({
     menuButtonHidden: {
       display: 'none',
     },
-    title: {    
+    title: {
       flexGrow: 100,
-  
+
     },
     drawerPaper: {
       position: 'relative',
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       overflow: 'auto',
       flexDirection: 'column',
-      
+
     },
     fixedHeight: {
       height: 240,
@@ -110,13 +111,12 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomDrawer = (props) => {
 
-    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, exploreDisabled, room1Disabled, room2Disabled, room3Disabled } = props;
-    const classes = useStyles();    
+    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled } = props;
+    const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    
-    
-    return (    
-        
+
+    return (
+
         <div className={classes.root}>
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -133,7 +133,7 @@ const CustomDrawer = (props) => {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             {title}
           </Typography>
-          
+
         </Toolbar>
       </AppBar>
 
@@ -143,7 +143,7 @@ const CustomDrawer = (props) => {
             paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
             }}
             open={open}
-            
+
             // "#87ceeb"
         >
             <div className={classes.toolbarIcon}>
@@ -151,22 +151,15 @@ const CustomDrawer = (props) => {
                 <ChevronLeftIcon />
             </IconButton>
             </div>
-            
-            <Divider />         
-        <List>      
-        
+
+            <Divider />
+        <List>
+
         <ListItem button disabled={homeDisabled} onClick = {() => history.push('/')}>
             <ListItemIcon>
             <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
-        </ListItem>
-
-        <ListItem button disabled={exploreDisabled}>
-            <ListItemIcon>
-            <ExploreIcon />
-            </ListItemIcon>
-            <ListItemText primary="Explore" />
         </ListItem>
 
         {/* <ListItem button onClick = {() => history.push('/Room1')}> */}
@@ -189,39 +182,22 @@ const CustomDrawer = (props) => {
             <MeetingRoomIcon />
             </ListItemIcon>
             <ListItemText primary="Room 3" />
-        </ListItem>    
+        </ListItem>
+
+        <ListItem button disabled={pricingDisabled} onClick = {() => history.push('/Pricing')}>
+            <ListItemIcon>
+              <PaymentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Pricing" />
+        </ListItem>
 
         </List>
-            
-            <Divider />
-            
-            <List>      
-            <ListSubheader inset>Saved reports</ListSubheader>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Current month" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Last quarter" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Year-end sale" />
-            </ListItem>
-            </List>
-            
+
         </Drawer>
 
-    </div>       
-        
-    )    
+    </div>
+
+    )
 };
 
 export default CustomDrawer;
