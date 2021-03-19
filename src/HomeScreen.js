@@ -85,24 +85,24 @@ const HomeScreen = ( props ) => {
 
     <Grid container xs={12} spacing={8} className={classes.container}>
 
-            <Grid item xs={12} xl={7}>  
+            <Grid item xs={12} md={7}>  
 
-            <Typography variant="h3" color="textPrimary" align="center" className={classes.introText}>
+            <Typography variant="h5" color="textPrimary" align="center" className={classes.introText}>
                {'Enjoy your stay at our lovely B&B in Drumbo!'}               
             </Typography>
-            <Typography variant="h3" color="textPrimary" align="center" className={classes.introText}>
+            <Typography variant="h5" color="textPrimary" align="center" className={classes.introText}>
                {'Click on our rooms to view their photos'}               
             </Typography>
-            <Typography variant="h3" color="textPrimary" align="center" className={classes.introText}>
+            <Typography variant="h5" color="textPrimary" align="center" className={classes.introText}>
                {'Check out our deals on the pricing page'}               
             </Typography>
-            <Typography variant="h3" color="textPrimary" align="center" className={classes.introText}>
+            <Typography variant="h5" color="textPrimary" align="center" className={classes.introText}>
                {'If you are interested in booking, Click Contact Us for more info!'}               
             </Typography>
 
             </Grid>
 
-            <Grid item xs={12} xl={5}>                      
+            <Grid item xs={12} md={5}>                      
 
                   <ShadowCard img={hilltop} width={900} text="Explore Hilltop B&B"/> 
 
@@ -113,16 +113,16 @@ const HomeScreen = ( props ) => {
 
      <Grid container xs={12} spacing={8} className={classes.container}>     
 
-              <Grid item xs={12} md={6} xl={3} onClick = {() => history.push('/Room1')}>
+              <Grid item xs={12} sm={6} md={3}  onClick = {() => history.push('/Room1')}>
                   <ShadowCard img={Room1} width={picWidth} text="Explore Room 1"/>                  
               </Grid>
-              <Grid item xs={12} md={6} xl={3} onClick = {() => history.push('/Room2')}>
+              <Grid item xs={12} sm={6} md={3} onClick = {() => history.push('/Room2')}>
                   <ShadowCard img={Room2} width={picWidth} text="Explore Room 2"/> 
               </Grid>                      
-              <Grid item xs={12} md={6} xl={3} onClick = {() => history.push('/Room3')}>
+              <Grid item xs={12} sm={6} md={3}  onClick = {() => history.push('/Room3')}>
                   <ShadowCard img={Room3} width={picWidth} text="Explore Room 3"/>
               </Grid>
-              <Grid item xs={12} md={6} xl={3} onClick = {() => history.push('/Room4')}>
+              <Grid item xs={12} sm={6} md={3}  onClick = {() => history.push('/Room4')}>
                   <ShadowCard img={Room4} width={picWidth} text="Explore Room 4"/>      
               </Grid>
               
@@ -131,7 +131,7 @@ const HomeScreen = ( props ) => {
 
      <Grid container xs={12} spacing={8} className={classes.container}>              
 
-              <Grid item xs={12} xl={6} paddingRight="100">
+              <Grid item xs={12} md={6} paddingRight="100">
 
                 <ReactWeather
                   isLoading={isLoading}
