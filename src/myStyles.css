@@ -1,0 +1,18 @@
+.shadowcard {
+    filter: brightness(70%);
+}
+
+.top-asad {    
+      transform: translate(-0%, -2500%);
+    }
+
+    
+
+.image-offset {    
+      transform: translate(+0%, +1%);
+    }
+
+
+ .font2 {
+        visibility: hidden;
+      }

@@ -18,11 +18,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { blue } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
 
@@ -42,14 +38,17 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
+      paddingLeft: 16,
+      marginRight: 16,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
     appBarShift: {
-      marginLeft: drawerWidth,
-      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,  
+      marginLeft: 160,    
+      width: `calc(100% - ${drawerWidth + 16}px)`,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,

@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
 import {colors} from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -19,11 +18,7 @@ const theme = createMuiTheme({
     fontSize: 30,
     color: 'white',
   },
-  drawer: {
-    backgroundColor: {
-      main: colors.blue[500],
-    } 
-  }
+  
 });
 
 export default theme;
