@@ -7,7 +7,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import HomeIcon from '@material-ui/icons/Home';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import PaymentIcon from '@material-ui/icons/Payment';
 import { makeStyles } from '@material-ui/core/styles';
@@ -153,9 +153,9 @@ const CustomDrawer = (props) => {
 
         <ListItem button disabled={homeDisabled} onClick = {() => history.push('/')}>
             <ListItemIcon>
-            <DashboardIcon />
+              <HomeIcon/>
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Home"/>
         </ListItem>
 
         {/* <ListItem button onClick = {() => history.push('/Room1')}> */}
