@@ -12,10 +12,13 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { makeStyles } from '@material-ui/core/styles';
 
 import CustomDrawer from "./CustomDrawer";
-import room1_bed from './assets/room1_bed.jpg';
-import room1_chair from './assets/room1_chair3.jpg';
-import room1_window from './assets/room1_window.jpg';
-import room1_shower from './assets/room1_shower.jpg';
+import room4_bed from './assets/room4_bed.jpeg';
+import room4_bath from './assets/room4_bath.jpeg';
+import room4_kitchen from './assets/room4_kitchen.jpeg';
+import room4_living from './assets/room4_living.jpeg';
+import room4_conservatory from './assets/room4_conservatory.jpeg';
+import room4_utilities from './assets/room4_utilities.jpeg';
+import room4_dining from './assets/room4_dining.jpeg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,14 +47,14 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const Room1 = (props) => {
+const Room3 = (props) => {
   const classes = useStyles();
-  const images = [room1_bed, room1_chair, room1_window, room1_shower];
-  const listOne = ['Double room', 'Ensuite', 'Bath', 'Shower', 'Ground floor', 'WiFi', 'Kitchen access'];
-  const listTwo = ['Tea & Coffee', 'Breakfast', 'Smart TV', 'Towels', 'Cot available', 'Hairdryer', 'Bed lights'];
+  const images = [room4_living, room4_kitchen, room4_dining, room4_utilities, room4_bed, room4_bath, room4_conservatory];
+  const listOne = ['Double room', 'Ensuite', 'Shower', 'Bath', 'WiFi', 'Sofa bed', 'Cot available', 'Washing machine', 'Dryer', 'Dishwasher'];
+  const listTwo = ['Tea & Coffee', 'Kitchen', 'Microwave', 'Cutlery', 'Dining table', 'Smart TV', 'Towels', 'Hair dryer', 'Conservatory'];
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
-  const room1Text = 'Welcome to Room 1. This is a ground floor ensuite room. It comes with a double bed and fitted wardrobes for storage. The decor throughout the room is neutral with solid wooden floor and oak door. A TV and dressing table with mirror are provided, as well as a comfortable vintage chair in the reading corner. The ensuite contains a bath with showerhead. All bed linen and towels are provided.';
+  const room4Text = 'Welcome to Apartment Room 4. This is a beautiful room which enjoys amazing views stretching 10 miles or more over Belfast and can be enjoyed daytime for the scenery or nighttime for the city lights. The room can be used for a B&B stay, or as self contained accommodation. The decor is bright and fresh with soft hues to help you relax. The living space includes a 42 inch TV, a leather bed settee (opens into a double bed) and a dining area. This living room opens via double french doors into a Conservatory where the amazing views can be best enjoyed. The Conservatory comes complete with a fireplace built from re-claimed Belfast brick and a wood burning stove. Although on the second floor, there is access (with no steps) via a concrete path across field which leads to a private parking area. The kitchen has a gas cooker with overhead extractor fan, a Belfast sink, a combined fridge/freezer, dishwasher, microwave and kitchen units are in oak. All cooking utensils are provided. In the utility area beside the kitchen there is a washing machine, a tumble dryer and vacuum cleaner. The en-suite bathroom has a wash hand basin, toilet, and bath with a thermostatic shower mounted above the bath. There is also a shower screen above the bath. The floor and shower area are fully tiled with natural stone tiles. An inviting bedroom hosts a Queen sized wooden sleigh bed, storage facilities and bedside tables with lamps. All bedclothes and towels are provided.';
 
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
@@ -63,17 +66,17 @@ const Room1 = (props) => {
     setIsViewerOpen(false);
   };
 
-  let {room1Disabled} = props;
-  room1Disabled = true;
+  let {room4Disabled} = props;
+  room4Disabled = true;
 
     return (
       <div className={classes.root}>
-        <CustomDrawer {...props} room1Disabled={room1Disabled} title = "Hilltop Room 1" />
+        <CustomDrawer {...props} room4Disabled={room4Disabled} title = "Hilltop Room 4" />
           <main className={classes.content}>
             <Grid container xs={12} spacing={6}>
               <Grid item xs={12} sm={8} md={8}>  
                 <Typography variant="body1" color="textPrimary" align="justify" className={classes.introText}>
-                    {room1Text}               
+                    {room4Text}               
                 </Typography>
               </Grid>
               <Grid item xs={6} sm={2} md={2}>
@@ -101,7 +104,7 @@ const Room1 = (props) => {
                 </List>
               </Grid>
             </Grid>
-            <GridList className={classes.gridList} cols={4}>
+            <GridList className={classes.gridList} cols={7}>
               {images.map((src, index) => (
                 <GridListTile style={{height:300}}>
                   <img src={src} onClick={ () => openImageViewer(index) }/>
@@ -124,4 +127,4 @@ const Room1 = (props) => {
     );
 }
 
-export default Room1;
+export default Room3;

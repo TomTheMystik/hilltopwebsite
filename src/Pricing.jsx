@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import CustomDrawer from "./CustomDrawer";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import PhotoViewer from './PhotoViewer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
