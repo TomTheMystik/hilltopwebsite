@@ -10,7 +10,6 @@ import Room1 from './assets/Room1.JPG';
 import Room2 from './assets/Room2.JPG';
 import Room3 from './assets/Room3.JPG';
 import Room4 from './assets/Room4.JPG';
-import { Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core';
 import ShadowCard from './ShadowCard';
 import './myStyles.css';
 

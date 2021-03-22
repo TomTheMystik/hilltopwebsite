@@ -7,11 +7,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ExploreIcon from '@material-ui/icons/Explore';
+import HomeIcon from '@material-ui/icons/Home';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import AssignmentIcon from '@material-ui/icons/Assignment';
 import PaymentIcon from '@material-ui/icons/Payment';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -110,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomDrawer = (props) => {
 
-    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled } = props;
+    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, room1Disabled, room2Disabled, room3Disabled, room4Disabled, pricingDisabled } = props;
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -156,9 +153,9 @@ const CustomDrawer = (props) => {
 
         <ListItem button disabled={homeDisabled} onClick = {() => history.push('/')}>
             <ListItemIcon>
-            <DashboardIcon />
+              <HomeIcon/>
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Home"/>
         </ListItem>
 
         {/* <ListItem button onClick = {() => history.push('/Room1')}> */}
@@ -181,6 +178,13 @@ const CustomDrawer = (props) => {
             <MeetingRoomIcon />
             </ListItemIcon>
             <ListItemText primary="Room 3" />
+        </ListItem>
+
+        <ListItem button disabled={room4Disabled} onClick = {() => history.push('/Room4')}>
+            <ListItemIcon>
+            <MeetingRoomIcon />
+            </ListItemIcon>
+            <ListItemText primary="Room 4" />
         </ListItem>
 
         <ListItem button disabled={pricingDisabled} onClick = {() => history.push('/Pricing')}>
