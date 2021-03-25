@@ -10,6 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ExploreIcon from '@material-ui/icons/Explore';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import PhoneIcon from '@material-ui/icons/Phone';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import PaymentIcon from '@material-ui/icons/Payment';
@@ -111,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomDrawer = (props) => {
 
-    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled } = props;
+    const { history, title, drawerState, handleDrawerClose, handleDrawerOpen, open, homeDisabled, room1Disabled, room2Disabled, room3Disabled, pricingDisabled, contactDisabled } = props;
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -189,6 +190,13 @@ const CustomDrawer = (props) => {
               <PaymentIcon />
             </ListItemIcon>
             <ListItemText primary="Pricing" />
+        </ListItem>
+
+        <ListItem button disabled={contactDisabled} onClick = {() => history.push('/Contact')}>
+            <ListItemIcon>
+              <PhoneIcon />
+            </ListItemIcon>
+            <ListItemText primary="Contact" />
         </ListItem>
 
         </List>
