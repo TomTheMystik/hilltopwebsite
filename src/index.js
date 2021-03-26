@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
-import HomeScreen from './HomeScreen';
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
