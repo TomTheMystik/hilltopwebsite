@@ -7,6 +7,8 @@ import './map.css'
 import { Icon } from '@iconify/react'
 import RoomIcon from '@material-ui/icons/Room';
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -47,7 +49,7 @@ const ContactScreen = (props) => {
               <Typography variant='body1' paragraph>To reserve a room there is a non-refundable reservation fee based on single rate occupancy per night. The balance for additional guests is paid on arrival.</Typography>
               <div style={{ height: '40vh', width: '40%' }}>
                 <GoogleMapReact
-                  bootstrapURLKeys={{ key: 'AIzaSyCMCr91J12f97H34_amDqG9Vm0JKNb_ark' }}
+                  bootstrapURLKeys={{ key: apiKey }}
                   defaultCenter={{lat: 54.584797232045304, lng: -5.913390777515708}}
                   defaultZoom={11}>
                   <LocationPin
