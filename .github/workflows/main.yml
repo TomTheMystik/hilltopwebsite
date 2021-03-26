@@ -27,6 +27,10 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Build page
-      run: npm run deploy
+      run: npm run build
+      env:
+        CI: false
+    - name: Deploy page
+      run: gh-pages -d build
       env:
         CI: false
