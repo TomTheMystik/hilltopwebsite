@@ -5,9 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import GoogleMapReact from 'google-map-react';
 import './map.css'
 import { Icon } from '@iconify/react'
+import { Link } from '@material-ui/core';
 import RoomIcon from '@material-ui/icons/Room';
 
 const apiKey = process.env.REACT_APP_API_KEY;
+const directionsUrl = "https://www.google.com/maps/dir//Hilltop+Drumbo+Bed+%26+Breakfast,+60+Tullyard+Rd,+Lisburn+BT27+5JN/@54.5032779,-6.0407118,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4861056c63235de9:0x4a2fb96902262137!2m2!1d-5.9706723!2d54.5031985!3e0";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,16 +33,19 @@ const useStyles = makeStyles((theme) => ({
 const ContactScreen = (props) => {
 
     const classes = useStyles();
+    const hilltopLat = 54.50532;
+    const hilltopLng = -5.97067;
 
     let {contactDisabled} = props;
     contactDisabled = true;
 
-    const LocationPin = ({ text }) => (
-      <div className="pin">
-        <Icon icon={RoomIcon} className="pin-icon" />
-        <p className="pin-text">{text}</p>
-      </div>
-    )
+    const Marker = props => {
+      return (
+      <>
+        <RoomIcon className="pin"/>
+      </>
+      );
+    }
 
     return (
         <div className={classes.root}>
@@ -48,16 +53,15 @@ const ContactScreen = (props) => {
             <main className={classes.content}>
               <Typography variant='body1' paragraph>To reserve a room there is a non-refundable reservation fee based on single rate occupancy per night. The balance for additional guests is paid on arrival.</Typography>
               <div style={{ height: '40vh', width: '40%' }}>
+              <Link onClick={()=> window.open(directionsUrl, "_blank")}>
                 <GoogleMapReact
                   bootstrapURLKeys={{ key: apiKey }}
-                  defaultCenter={{lat: 54.584797232045304, lng: -5.913390777515708}}
-                  defaultZoom={11}>
-                  <LocationPin
-                    lat={54.584797232045304}
-                    lng={-5.913390777515708}
-                    text={'Hilltop B&B'}
-                  />
+                  defaultCenter={{lat: hilltopLat, lng: hilltopLng}}
+                  yesIWantToUseGoogleMapApiInternals
+                  defaultZoom={9}>
+                  <Marker lat={hilltopLat} lng={hilltopLng} />
                 </GoogleMapReact>
+                </Link>
               </div>
             </main>
         </div>

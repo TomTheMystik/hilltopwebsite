@@ -14,8 +14,8 @@
 .pin {
   display: flex;
   align-items: center;
-  width: 180px;
-  color: var(--main-blue);
+  width: 400%;
+  color: rgba(204, 4, 4, 0.925);
 }
 
 .pin-icon {
@@ -34,10 +34,6 @@
   .map-h2 {
     font-size: 1.3rem;
     font-weight: 400;
-  }
-
-  .pin {
-    width: 15vw;
   }
 
   .pin-icon {
