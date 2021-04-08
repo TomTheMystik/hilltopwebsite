@@ -53,6 +53,10 @@ const ContactScreen = (props) => {
        setStyleName('');
     }
 
+    function onError(value) {
+      setStyleName('invisible');
+   }
+
     return (
         <div className={classes.root}>
           <CustomDrawer {...props} contactDisabled={contactDisabled} title = "Contact" />
@@ -80,7 +84,7 @@ const ContactScreen = (props) => {
                     
             <Grid container xs={12} spacing={8} className={classes.container}>
                   <Grid item xs={2}>
-                      <Typography variant='h5' paragraph>Complete verification to see our contact info:</Typography>
+                      <Typography variant='h5' paragraph>Please prove you are not a robot to see our contact info:</Typography>
 
                   </Grid>
 
@@ -88,7 +92,7 @@ const ContactScreen = (props) => {
                     <ReCAPTCHA
                       sitekey="6LfIZJgaAAAAAKX3KL-SZreKosEVvlpUU536PegD"
                       onChange={onChange}
-                      theme='dark'
+                      onExpired={onError}
                       />
                       </Grid>
             </Grid>
@@ -99,7 +103,7 @@ const ContactScreen = (props) => {
                       <Typography variant='h5' paragraph>Email: &nbsp;&nbsp;&nbsp;&nbsp; info@hilltopdrumbo.com</Typography>
                       <Typography variant='h5' paragraph>Tel: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 028 9082 6021</Typography>
                       <Typography variant='h5' paragraph> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0044)28 9082 6021</Typography>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (0044) 28 9082 6021</Typography>
 
                   </Grid>
                   
