@@ -2,6 +2,10 @@
     filter: brightness(70%);
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .top-asad {    
       transform: translate(-0%, -2500%);
     }
