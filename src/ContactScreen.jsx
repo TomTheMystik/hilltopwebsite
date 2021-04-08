@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
       paddingTop: theme.spacing(5),
-      paddingBottom: theme.spacing(5),
+      paddingBottom: theme.spacing(3),
       paddingLeft: theme.spacing(5),
     }
 
@@ -64,22 +64,38 @@ const ContactScreen = (props) => {
 
             <Grid container xs={12} spacing={4} direction="column">
              <Grid container xs={12} spacing={8} className={classes.container}>
-                    <Typography variant='h5' paragraph>To reserve a room there is a non-refundable reservation fee based on single rate occupancy per night. The balance for additional guests is paid on arrival.</Typography>
+                    <Typography variant='h5' style={{paddingTop: 10, paddingLeft: 30}} paragraph>To reserve a room there is a non-refundable reservation fee based on single rate occupancy per night. The balance for additional guests is paid on arrival.</Typography>
             </Grid>
 
             <Grid container xs={12} spacing={8} className={classes.container}>
-                    <div style={{ height: '40vh', width: '40%' }}>
-                      <GoogleMapReact
-                        bootstrapURLKeys={{ key: apiKey }}
-                        defaultCenter={{lat: 54.584797232045304, lng: -5.913390777515708}}
-                        defaultZoom={11}>
-                        <LocationPin
-                          lat={54.584797232045304}
-                          lng={-5.913390777515708}
-                          text={'Hilltop B&B'}
-                        />
-                      </GoogleMapReact>
-                    </div>
+
+                    <Grid item xs={6} className={classes.container}>
+                          <div style={{ height: '50vh', width: '100%' }}>
+                            <GoogleMapReact
+                              bootstrapURLKeys={{ key: apiKey }}
+                              defaultCenter={{lat: 54.584797232045304, lng: -5.913390777515708}}
+                              defaultZoom={11}>
+                              <LocationPin
+                                lat={54.584797232045304}
+                                lng={-5.913390777515708}
+                                text={'Hilltop B&B'}
+                              />
+                            </GoogleMapReact>                            
+                          </div>
+                    </Grid>
+
+                    
+
+                    <Grid item xs={4} className={classes.container}>
+
+                    <Typography variant='h4' style={{padding: 20}}> Directions: </Typography>
+                    
+                    <Typography variant='h5' style={{paddingLeft: 20}} paragraph>You will find us 3.5 miles from Lisburn City, on the hills where Down meets Antrim. We overlook the landscape of Belfast's Lagan Valley and Belfast City is just 8.5 miles away.
+                        There are many hillside walks, duns and forests to explore within an easy distance.
+                        Tullyard (our location) was once a fortified Celtic town and the surrounding area has much ancient history including the nearby Giants Ring and one of Ireland's oldest churches believed to have been founded by St Patrick.
+                        Drumbo village is a small townland with ancient roots. The name is taken from 'ridge of the oxen' relating to its hill top location. It has the only remaining round tower (Drumbo Tower) in Ireland, which is believed to 
+                        have been used to warn of invading vikings!</Typography>
+                    </Grid>
             </Grid>
                     
             <Grid container xs={12} spacing={8} className={classes.container}>
