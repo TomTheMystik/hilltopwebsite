@@ -8,7 +8,7 @@ const hilltopLat = 54.50532;
 const hilltopLng = -5.97067;
 
 const mapStyles = {
-  width: '40%',
+  width: '45%',
   height: '50%'
 };
 
@@ -18,7 +18,7 @@ export class MapContainer extends Component {
       <Map
         google={this.props.google}
         zoom={9}
-        style={mapStyles}
+        containerStyle={mapStyles}
         initialCenter={
           {
             lat: hilltopLat,
