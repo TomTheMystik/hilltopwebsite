@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CustomDrawer from "./CustomDrawer";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from '@material-ui/core/';
+import { Card, CardActionArea, CardContent, Link } from '@material-ui/core/';
 import './map.css'
 import MapContainer from './MapContainer';
 import Grid from '@material-ui/core/Grid';
@@ -29,8 +29,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1),
       paddingLeft: theme.spacing(1),
-    }
-
+    },
   }));
 
 const ContactScreen = (props) => {
@@ -65,11 +64,11 @@ const ContactScreen = (props) => {
             </Grid>
 
              <Grid container item xs={12} spacing={4} className={classes.container}>
-              <Grid item xs={12} md={6}>                
-                <MapContainer/>
-              </Grid>
+            <Grid item xs={12}  lg={10} xl={6} style={{paddingLeft:60, paddingRight:100, paddingTop:15}}>   
+                    <MapContainer/> 
+              </Grid>              
 
-              <Grid item xs={12} md={5}>                    
+              <Grid item xs={12} xl={5}>                    
                 <Typography variant='h5' paragraph>Please prove you are not a robot to see our contact info:</Typography>                
                   <ReCAPTCHA
                     sitekey="6LfIZJgaAAAAAKX3KL-SZreKosEVvlpUU536PegD"

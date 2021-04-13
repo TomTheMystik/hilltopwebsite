@@ -20,3 +20,9 @@
  .font2 {
         visibility: hidden;
       }
+
+.mapStyles {
+           max-width: 502px;
+          max-height: 650px;
+          
+      }
