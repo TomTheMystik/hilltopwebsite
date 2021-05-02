@@ -1,12 +1,33 @@
 import React, {useState, useEffect} from 'react';
 import CustomDrawer from "./CustomDrawer";
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: 'green',
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontWeight: 'bold',
+  },
+}))(TableCell);
 
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
+    header: {
+      fontSize: 20
+    },
+    tableRightBorder : { borderLeft: 0, borderTop: 0, borderRight: 1, borderColor: 'white', borderStyle: 'solid'},
     appBarSpacer: theme.mixins.toolbar,
     content: {
       flexGrow: 1,
@@ -19,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(4),
     },
+    table: {
+      minWidth: 650,
+    },
 
   }));
 
@@ -28,6 +52,20 @@ const Room3 = (props) => {
 
     let {pricingDisabled} = props;
     pricingDisabled = true;
+
+    function createData(room, continetalOneNight, continentalTwoNights, cookedOneNight, cookedTwoNights) {
+      return { room, continetalOneNight, continentalTwoNights, cookedOneNight, cookedTwoNights };
+    }
+    
+    const rows = [
+      createData('Single', '£40.00', '£30.00', '£50.00', '£40.00'),
+      createData('Double', '£50.00', '£40.00', '£70.00', '£50.00'),
+      createData('Child 5-18', '£20.00pp', '£15.00pp', '£25.00pp', '£20.00pp'),
+      createData('Child 0-5', 'free', 'free', 'free', 'free')
+    ];
+
+    const oneNight = 'One night - Price per night';
+    const moreNights = 'Three or more nights - Price per night';
 
     return (
         <div className={classes.root}>
@@ -39,50 +77,39 @@ const Room3 = (props) => {
               <Typography variant='body1' paragraph>We use PayPal for our transactions. We do not hold your card details and you can use PayPal without having an account with them. </Typography>
               <Typography variant='body1' paragraph>If you prefer to speak with us directly, or have any questions or queries, please see our Contact page or call us anytime.</Typography>
               <Typography variant='body1' paragraph>If you need to cancel your booking, please let us know as soon as possible so that we may offer the room to someone else. </Typography>
-                <table width="300" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor solid="#000000">
-                  <tr>
-                    <td colspan="2"><div align="center"><span class="h2">Room 1 and Room 2</span></div></td>
-                    </tr>
-                  <tr>
-                    <td width="216"><div align="left"><span class="style3">Single person per night </span></div></td>
-                    <td width="57"><span class="style3">£30</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3">Couple sharing per night </span></div></td>
-                    <td><span class="style3">£45</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3"> Children under 5  </span></div></td>
-                    <td><span class="style3">free</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3">Children 5 - 16 per night</span></div></td>
-                    <td><span class="style3">£15</span></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><div align="center"><span class="h2">Room 3 and Room 4</span></div></td>
-                    </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3">Single person per night </span></div></td>
-                    <td><span class="style3">£45</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3">Couple sharing per night</span></div></td>
-                    <td><span class="style3">£60</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3">Children under 5 </span></div></td>
-                    <td><span class="style3">free</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="style3">Children 5 - 16 per night</span></div></td>
-                    <td><span class="style3">£22.50</span></td>
-                  </tr>
-                  <tr>
-                    <td><div align="left"><span class="h2"><span class="style3">SPECIAL* - 1 week self contained* (up to 4 people) </span></span><span class="style5">*Guests supply their own towels, bedding &amp; utensils etc.</span></div></td>
-                    <td><span class="h2">£250 </span></td>
-                  </tr>
-                </table>
+              <TableContainer component={Paper}>
+                <Table className={classes.table} size="small" aria-label="a dense table">
+                  <TableHead className={classes.header}>
+                    <TableRow>
+                      <StyledTableCell></StyledTableCell>
+                      <StyledTableCell align="right">Bed & Continental Breakfast</StyledTableCell>
+                      <StyledTableCell align="right" className={classes.tableRightBorder}></StyledTableCell>
+                      <StyledTableCell align="right">Bed & Full Cooked Irish Breakfast</StyledTableCell>
+                      <StyledTableCell align="right"></StyledTableCell>
+                    </TableRow>
+                    <TableRow>
+                      <StyledTableCell></StyledTableCell>
+                      <StyledTableCell align="right" className={classes.tableRightBorder}>{oneNight}</StyledTableCell>
+                      <StyledTableCell align="right" className={classes.tableRightBorder}>{moreNights}</StyledTableCell>
+                      <StyledTableCell align="right" className={classes.tableRightBorder}>{oneNight}</StyledTableCell>
+                      <StyledTableCell align="right" className={classes.tableRightBorder}>{moreNights}</StyledTableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {rows.map((row) => (
+                      <TableRow key={row.room}>
+                        <TableCell component="th" scope="row">
+                          {row.room}
+                        </TableCell>
+                        <TableCell align="right">{row.continetalOneNight}</TableCell>
+                        <TableCell align="right">{row.continentalTwoNights}</TableCell>
+                        <TableCell align="right">{row.cookedOneNight}</TableCell>
+                        <TableCell align="right">{row.cookedTwoNights}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </main>
         </div>
     );

@@ -24,4 +24,6 @@
   color: #61dafb;
 }
 
-
+.MuiTableHead-root {
+  font-weight: bold;
+}
