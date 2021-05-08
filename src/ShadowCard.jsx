@@ -11,10 +11,6 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[10],
         cursor: 'pointer',
         position: 'relative'  
-    },    
-    images: {
-      height: "auto",
-      width: "100%",    
     },
     fontStyling: {
       position: "absolute",
